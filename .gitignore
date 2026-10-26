@@ -1,8 +1,18 @@
+# Dependencies
+node_modules/
 
 # Playwright
-node_modules/
 /test-results/
-# /playwright-report/
+/playwright-report/
 /blob-report/
 /playwright/.cache/
-/playwright/.auth/
+
+# Playwright BDD
+.features-gen/
+
+# Sessions d'authentification (JAMAIS sur GitHub)
+.auth/
+
+# Environment
+.env
+.env.local
