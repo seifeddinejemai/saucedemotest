@@ -3,10 +3,12 @@ import { Page, Locator } from '@playwright/test';
 export class CartPage {
   readonly page: Page;
   readonly cartItems: Locator;
+  readonly checkoutButton: Locator;
 
   constructor(page: Page) {
     this.page = page;
     this.cartItems = page.locator('.cart_item');
+    this.checkoutButton = page.locator('#checkout');
   }
 
   async getItemNames(): Promise<string[]> {
@@ -22,5 +24,11 @@ export class CartPage {
   async removeItem(productName: string): Promise<void> {
     const item = this.cartItems.filter({ hasText: productName });
     await item.getByRole('button', { name: 'Remove' }).click();
+  }
+
+  // ✅ Nouvelle méthode
+  async goToCheckout(): Promise<void> {
+    await this.checkoutButton.click();
+    await this.page.waitForURL(/checkout-step-one/);
   }
 }

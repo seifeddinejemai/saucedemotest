@@ -2,10 +2,17 @@
 
 Fonctionnalité: Tri des produits sur la page d'inventaire
   En tant qu'utilisateur de SauceDemo
-  Je veux trier les produits par prix
-  Afin de trouver les articles les moins ou les plus chers
+  Je veux trier les produits
+  Afin de trouver les articles selon mes préférences
 
-  Scénario: Tri des prix du plus bas au plus élevé (utilisateur standard)
+  Plan du Scénario: Tri des produits par <option> en ordre <ordre>
     Étant donné que je suis sur la page d'inventaire
-    Quand je trie les produits par "Prix (croissant)"
-    Alors la liste des prix doit être triée par ordre croissant
+    Quand je trie les produits par "<option>"
+    Alors les "<critere>" doivent être triés par ordre "<ordre>"
+
+    Exemples:
+      | option             | critere | ordre       |
+      | Prix (croissant)   | prix    | croissant   |
+      | Prix (décroissant) | prix    | décroissant |
+      | Nom (A à Z)        | nom     | croissant   |
+      | Nom (Z à A)        | nom     | décroissant |
